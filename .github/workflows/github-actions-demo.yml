@@ -5,7 +5,7 @@ on:
     branches:
       - main
 jobs:
-  Explore-GitHub-Actions:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
@@ -20,4 +20,6 @@ jobs:
       - name: List files in the repository again
         run: |
           find ${{ github.workspace }}
+      - name: Upload pages artifact
+        uses: actions/upload-pages-artifact@v1
       - run: echo "🍏 This job's status is ${{ job.status }}."
